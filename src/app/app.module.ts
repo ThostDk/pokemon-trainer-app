@@ -10,13 +10,15 @@ import { TrainerPage } from './pages/trainer/trainer.page';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginPage,
     PokemonCataloguePage,
     TrainerPage,
-    LoginFormComponent
+    LoginFormComponent,
+    PokemonListComponent
   ],
   imports: [
     BrowserModule,

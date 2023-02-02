@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
+    production: true,
     apiUsers: "https://dust-resonant-huckleberry.glitch.me/users",
     apiTrainers: "https://dust-resonant-huckleberry.glitch.me/trainers",
     apiPokemons: "https://pokeapi.co/api/v2/pokemon-species/",
