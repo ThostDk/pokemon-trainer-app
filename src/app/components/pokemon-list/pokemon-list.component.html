@@ -1,17 +1,54 @@
-<p>pokemon-list works!</p>
+<!-- <p>pokemon-list works!</p>
 <ul>
+    
     <li *ngFor="let pokemon of pokemons">
         <span>{{ pokemon.name}}</span>
-    </li>
-    <!-- <li>pokemon 1
-        <img src="https://pokeapi.co/api/v2/pokemon/bulbasaur.sprites" />
+    </li> 
+    <li>pokemon 1
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png" />
     </li>
     <li>pokemon 2
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" />
-    </li> -->
-</ul>
+    </li>
+</ul> -->
 <!-- 
 https://web.postman.co/workspace/My-Workspace~0c3d2136-1aa5-489b-8751-56d317762656/request/create?requestId=636bec51-345d-428c-8488-b9f79810ff62
 https://pokeapi.co/api/v2/pokemon/bulbasaur 
 "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
 -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col-xl-8 offset-xl-2">
+            <div class="row">
+                <h1 class="mb-4">Pokedex</h1>
+                <div *ngFor="let pokemon of pokemons; let i = index" class="col-md-6">
+                    <div class="card mb-3 bg-{{getType(pokemon)}}" [routerLink]="['/view', pokemon.name]">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-7 col-sm-8">
+                                    <h3 class="card-title">{{pokemon.name | titlecase}}</h3>
+                                    <span *ngFor="let type of pokemon.types"
+                                        class="badge border rounded-pill me-1 bg-{{getType(pokemon)}}">
+                                        {{type.type.name | titlecase}}
+                                    </span>
+                                </div>
+                                <div class="col-5 col-sm-4">
+                                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"
+                                        class="img-fluid" alt="...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm text-center">
+            <button class="btn btn-sm btn-secondary" (click)="getPokemons()">
+                <div class="spinner-border spinner-border-sm" role="status" *ngIf="isLoading"></div>
+                {{isLoading ? 'Loading...' : 'Load More'}}
+            </button>
+        </div>
+    </div>
+</div>

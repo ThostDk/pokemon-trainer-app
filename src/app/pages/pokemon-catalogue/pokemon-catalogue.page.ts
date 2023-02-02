@@ -23,6 +23,7 @@ export class PokemonCataloguePage {
   constructor(
     private readonly pokemonCatalogueService: PokemonCatalogueService) { }
   ngOnInit(): void {
-    this.pokemonCatalogueService.findAllPokemons();
+    
+    //this.pokemonCatalogueService.findAllPokemons();
   }   
 }
