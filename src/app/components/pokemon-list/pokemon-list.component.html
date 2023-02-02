@@ -1,5 +1,16 @@
 <p>pokemon-list works!</p>
 <ul>
-    <li>pokemon 1</li>
-    <li>pokemon 2</li>
+    <li *ngFor="let pokemon of pokemons">
+        <span>{{ pokemon.name}}</span>
+    </li>
+    <!-- <li>pokemon 1
+        <img src="https://pokeapi.co/api/v2/pokemon/bulbasaur.sprites" />
+    </li>
+    <li>pokemon 2
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png" />
+    </li> -->
 </ul>
+<!-- 
+https://pokeapi.co/api/v2/pokemon/bulbasaur 
+"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+-->
