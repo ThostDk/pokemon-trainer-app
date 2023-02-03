@@ -1,53 +1,28 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { concat, Subscription } from 'rxjs';
-import { Pokemon } from 'src/app/models/pokemon.model';
-import { PokeApiService } from 'src/app/services/poke-api.service';
+import { Component, OnInit } from '@angular/core';
+
+import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.service';
 @Component({
   selector: 'app-pokemon-list',
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.css'],
 })
 export class PokemonListComponent implements OnInit {
-  isLoading: boolean = false;
-  subscriptionArr: Subscription[] = [];
+  pokemons: any[] = [];
+  constructor(private pokeCatalogueService: PokemonCatalogueService) {}
 
-  constructor(private pokeApiService: PokeApiService) {}
-
-  get pokemons(): any[] {
-    return this.pokeApiService.pokemons;
-  }
-  set subscription(subscription: Subscription) {
-    this.subscriptionArr.push(subscription);
-  }
+  // get the api data and run through each of the pokemons
+  // then get & push their inner data by name to the pokemon array
   ngOnInit(): void {
-    if(!this.pokemons.length){
-      this.getPokemons();
-    }
-  }
-  ngOnDestroy(): void {
-    this.subscriptionArr.forEach((subscription) =>
-      subscription ? subscription.unsubscribe() : false
-    );
-  }
-  //@Input() pokemons: Pokemon[] = [];
-
-  getPokemons(): void {
-    this.isLoading = true;
-    this.subscription = this.pokeApiService.getNext().subscribe(
-      (response) => {
-        this.pokeApiService.next = response.next;
-        const details = response.results.map((i: any) =>
-          this.pokeApiService.get(i.name)
-        );
-        this.subscription = concat(...details).subscribe((response: any) => {
-          this.pokeApiService.pokemons.push(response);
+    this.pokeCatalogueService
+      .fetchPokeApiData(20)
+      .subscribe((apiResponse: any) => {
+         apiResponse.results.forEach((result: { name: string }) => {
+          this.pokeCatalogueService
+            .getPokemonData(result.name)
+            .subscribe((dataResponse: any) => {
+              this.pokemons.push(dataResponse);
+            });
         });
-      },
-      (error) => console.log('Error Occurred:', error),
-      () => (this.isLoading = false)
-    );
-  }
-  getType(pokemon: any): string {
-    return this.pokeApiService.getType(pokemon);
+      });
   }
 }
