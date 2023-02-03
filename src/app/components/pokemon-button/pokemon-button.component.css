@@ -1,0 +1,17 @@
+.pokemonBtnAside{
+    width: 50%;
+    background-color: rgb(255, 57, 57);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: 700;
+    color:rgb(255, 255, 255);
+    border-width: 2px;
+    border-color: white;
+}
+.pokemonBtnAside:hover{
+    background-color: rgb(255, 0, 0);
+    color:rgb(255, 238, 0);
+    border-color: rgb(238, 255, 0);
+}

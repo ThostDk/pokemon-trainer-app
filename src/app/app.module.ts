@@ -11,6 +11,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonButtonComponent } from './components/pokemon-button/pokemon-button.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
     PokemonCataloguePage,
     TrainerPage,
     LoginFormComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    PokemonButtonComponent
   ],
   imports: [
     BrowserModule,
