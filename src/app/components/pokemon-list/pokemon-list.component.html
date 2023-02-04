@@ -2,7 +2,7 @@
     <div class="box" *ngFor="let pokemon of pokemons">
         <img class="pokemonImg" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" />
         <h2 class="pokemonName">{{pokemon.name}}</h2>
-        <app-pokemon-button (click)="addPokemon(pokemon.name)"></app-pokemon-button>
+        <app-pokemon-button [pokemonName]="pokemon.name"></app-pokemon-button>
     </div>
     
 </div>

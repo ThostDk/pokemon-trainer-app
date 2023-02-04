@@ -4,7 +4,7 @@ import { finalize, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 
-const { apiPokemons } = environment;
+const { apiPokemons, apiTrainers } = environment;
 
 @Injectable({
   providedIn: 'root',
@@ -18,5 +18,8 @@ export class PokemonCatalogueService {
   // gets the actual pokemon data by name
   getPokemonData(name: string) {
     return this.http.get(`${environment.apiPokemons}${name}`);
+  }
+  addPokemonToTrainer(){
+    //needs to be able to add the clicked pokemon to the trainers pokemon array
   }
 }

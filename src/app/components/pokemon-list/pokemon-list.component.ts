@@ -10,7 +10,7 @@ import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.serv
 })
 export class PokemonListComponent implements OnInit {
   pokemons: any[] = [];
-  myPokemons: any[] = [];
+ 
   constructor(private pokeCatalogueService: PokemonCatalogueService) {}
 
   // get the api data and run through each of the pokemons
@@ -29,11 +29,5 @@ export class PokemonListComponent implements OnInit {
       });
   }
   
-  addPokemon = (name: string) =>{
-    this.pokeCatalogueService.getPokemonData(name).subscribe((response: any) => {
-      this.myPokemons.push(response);
-      console.log(this.myPokemons)
-    })
-    
-  }
+  
 }
