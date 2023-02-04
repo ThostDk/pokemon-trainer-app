@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize, Observable } from 'rxjs';
+import { finalize, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
 import { User } from '../models/user.model';
@@ -30,7 +30,7 @@ export class PokemonCatalogueService {
   getPokemonData(name: string) {
     return this.http.get(`${environment.apiPokemons}${name}`);
   }
-  addPokemonToTrainer(pokemonName:string): Observable<any>{
+  addPokemonToTrainer(pokemonName:string): Observable<User>{
     console.log("trying to add: " + pokemonName)
     //needs to be able to add the clicked pokemon to the trainers pokemon array
     if (!this.userService.user) {
@@ -52,15 +52,18 @@ export class PokemonCatalogueService {
     
     this._loading = true;
 
-    return this.http.patch(`${apiTrainers}/${trainer.id}`, {
+    return this.http.patch<User>(`${apiTrainers}/${trainer.id}`, {
       pokemon: [...trainer.pokemon, pokemonName]
     }, {
       headers
     })
     .pipe(
+      tap((updatedUser: User) => {
+        this.userService.user = updatedUser
+      }),
       finalize(() =>{
         this._loading = false;
-      } )
+      })
     )
   }
 }
