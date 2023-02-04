@@ -9,7 +9,9 @@ import { StorageUtil } from '../utils/storage.util';
 export class UserService {
 
   private _user?: User;
-
+  public get pokemonCount(): number{
+    return this._user? this._user.pokemon.length : 0
+  }
   public get user(): User | undefined {
     return this._user;
   }
@@ -22,7 +24,7 @@ export class UserService {
     this._user = StorageUtil.storageRead<User>(StorageKeys.User);
    
    }
-
+    
    public havePokemon(pokemonName: string): boolean{
     if(this._user)
     {

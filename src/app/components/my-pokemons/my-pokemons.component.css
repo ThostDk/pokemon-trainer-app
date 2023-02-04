@@ -1,0 +1,31 @@
+.pokemon-grid{
+    background-color: rgb(48, 65, 219);
+    display: grid;
+    grid-gap: 16 px;
+    padding: 15px;
+    grid-template-columns: repeat(auto-fit,minmax(23%, 1fr));
+}
+.pokemon-grid .box{
+    width: 80%;
+    background-color: rgb(40, 120, 185);
+    padding: 15px;
+    margin-top: 10px;
+    height: 95%;
+    box-shadow: black;
+    box-shadow: 4px 8px 6px -6px black;
+    position:relative;
+    z-index: 2;
+    border-radius: 10px;
+}
+.pokemon-grid .box .pokemonImg{
+    width: 100%;
+    height: fit-content;
+    
+}
+.pokemon-grid .box .pokemonName{
+    margin: auto;
+    width: 50%;
+    margin-top: -20px;
+    font-size: 2vw;
+    color: white
+}

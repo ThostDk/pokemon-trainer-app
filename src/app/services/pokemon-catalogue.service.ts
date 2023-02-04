@@ -30,6 +30,8 @@ export class PokemonCatalogueService {
   getPokemonData(name: string) {
     return this.http.get(`${environment.apiPokemons}${name}`);
   }
+  
+  // function that adds the clicked pokemon to the user api if the user dont have it already
   addPokemonToTrainer(pokemonName:string): Observable<User>{
     console.log("trying to add: " + pokemonName)
     //needs to be able to add the clicked pokemon to the trainers pokemon array
