@@ -24,7 +24,10 @@ export class UserService {
     this._user = StorageUtil.storageRead<User>(StorageKeys.User);
    
    }
-    
+   public removePokemon(pokemonName: string): string[]{
+    let tmpArr = [];
+      return tmpArr = this._user? this._user.pokemon.filter(e => e !== pokemonName ) : []
+   }
    public havePokemon(pokemonName: string): boolean{
     if(this._user)
     {

@@ -1,9 +1,11 @@
 <p>my-pokemons works!</p>
 <div class="pokemon-grid">
     <div class="box" *ngFor="let pokemon of pokemons">
+        
         <img class="pokemonImg" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" />
         <h2 class="pokemonName">{{pokemon.name}}</h2>
-        <app-pokemon-button [pokemonName]="pokemon.name"></app-pokemon-button>
+        <app-remove-pokemon-button [pokemonName]="pokemon.name"></app-remove-pokemon-button>
+        
     </div>
     
 </div>

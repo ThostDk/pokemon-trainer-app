@@ -14,11 +14,8 @@ export class MyPokemonsComponent {
     private pokeCatalogueService: PokemonCatalogueService,
     private readonly userService: UserService,
     ) {}
-
-  // get the api data and run through each of the pokemons
-  // then get & push their inner data by name to the pokemon array
-  ngOnInit(): void {
-    console.log(this.userService.user?.pokemon[0])
+  renderMyPokemons = () => {
+    this.pokemons = [];
     const count = this.userService.user? this.userService.pokemonCount : 0
     for (let i=0; i<count;i++){
       this.pokeCatalogueService
@@ -27,7 +24,13 @@ export class MyPokemonsComponent {
         this.pokemons.push(dataResponse);
       });
     }
-        
+    
+  }
+  // get the api data and run through each of the pokemons
+  // then get & push their inner data by name to the pokemon array
+  ngOnInit(): void {
+    this.renderMyPokemons();
+    console.log("count: "+this.pokemons.length)
   }
   
   

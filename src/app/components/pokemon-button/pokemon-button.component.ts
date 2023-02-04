@@ -9,7 +9,7 @@ import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.serv
   styleUrls: ['./pokemon-button.component.css']
 })
 export class PokemonButtonComponent {
-  myPokemons: any[] = [];
+  
   @Input() pokemonName: string = "";
   
   get loading(): boolean {
@@ -30,9 +30,6 @@ export class PokemonButtonComponent {
         console.log("ERROR", error.message)
       }
     })
-    // this.pokeCatalogueService.getPokemonData(this.pokemonName).subscribe((response: any) => {
-    //   this.myPokemons.push(response);
-    //   console.log(this.pokemonName.toString())
-    // })
+    
   } 
 }
