@@ -1,16 +1,27 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { finalize, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from '../models/pokemon.model';
+import { User } from '../models/user.model';
+import { UserService } from './user.service';
 
-const { apiPokemons, apiTrainers } = environment;
+const { apiPokemons, apiTrainers, apiKey } = environment;
 
 @Injectable({
   providedIn: 'root',
 })
 export class PokemonCatalogueService {
-  constructor(private readonly http: HttpClient) {}
+  private _loading: boolean = false;
+
+  get loading(): boolean{
+    return this._loading;
+  }
+
+  constructor(
+    private readonly http: HttpClient,
+    private readonly userService: UserService,
+    ) {}
   // fetches the poke api data and limits the returned count to spare the api
   fetchPokeApiData(number: number) {
     return this.http.get(`${environment.apiPokemons}?limit=${number}`);
@@ -19,7 +30,37 @@ export class PokemonCatalogueService {
   getPokemonData(name: string) {
     return this.http.get(`${environment.apiPokemons}${name}`);
   }
-  addPokemonToTrainer(){
+  addPokemonToTrainer(pokemonName:string): Observable<any>{
+    console.log("trying to add: " + pokemonName)
     //needs to be able to add the clicked pokemon to the trainers pokemon array
+    if (!this.userService.user) {
+      throw new Error("There is no user to add the pokemon to!");
+    }
+    const trainer: User = this.userService.user;
+    const pokemon: string | undefined = pokemonName
+    if (!pokemon){
+      throw new Error("No pokemon is selected");
+    }
+    if (this.userService.havePokemon(pokemonName)){
+      throw new Error("You already have this pokemon");
+    }
+
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+      'x-api-key': apiKey
+    })
+    
+    this._loading = true;
+
+    return this.http.patch(`${apiTrainers}/${trainer.id}`, {
+      pokemon: [...trainer.pokemon, pokemonName]
+    }, {
+      headers
+    })
+    .pipe(
+      finalize(() =>{
+        this._loading = false;
+      } )
+    )
   }
 }

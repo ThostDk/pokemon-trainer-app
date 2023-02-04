@@ -22,4 +22,12 @@ export class UserService {
     this._user = StorageUtil.storageRead<User>(StorageKeys.User);
    
    }
+
+   public havePokemon(pokemonName: string): boolean{
+    if(this._user)
+    {
+      return Boolean(this._user?.pokemon.find((pokemon: string) => pokemon === pokemonName))
+    }
+    return false;
+   }
 }

@@ -17,7 +17,7 @@ export class PokemonListComponent implements OnInit {
   // then get & push their inner data by name to the pokemon array
   ngOnInit(): void {
     this.pokeCatalogueService
-      .fetchPokeApiData(20)
+      .fetchPokeApiData(200)
       .subscribe((apiResponse: any) => {
          apiResponse.results.forEach((result: { name: string }) => {
           this.pokeCatalogueService
