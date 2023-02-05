@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login.page';
@@ -15,6 +16,8 @@ import { PokemonButtonComponent } from './components/pokemon-button/pokemon-butt
 import { MyPokemonsComponent } from './components/my-pokemons/my-pokemons.component';
 import { RemovePokemonButtonComponent } from './components/remove-pokemon-button/remove-pokemon-button.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     PokemonButtonComponent,
     MyPokemonsComponent,
     RemovePokemonButtonComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

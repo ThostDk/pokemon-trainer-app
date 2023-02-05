@@ -1,0 +1,51 @@
+.column{
+  float: left;
+  width: 33.33%;
+}
+
+.row::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  width: 100%;
+}
+
+.card{
+  background-color:  lightskyblue;
+
+}
+
+.loginSubmitButton{
+  background-color: rgb(25, 135, 48);
+  color: white;
+  border-color:black;
+  width: 10%;
+  border-radius: 4px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  font-weight: 100;
+}
+
+.loginSubmitButton:hover{
+background-color: rgb(132, 198, 146);
+}
+
+.border{
+  background-color: rgba(128, 128, 128, 0.577);
+  color: black;
+  border-color:black;
+  width: 10%;
+  border-radius: 4px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  font-weight: 100;
+}
+
+.border:hover{
+background-color: coral;
+}
