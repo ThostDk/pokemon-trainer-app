@@ -4,12 +4,12 @@
     <form #loginForm="ngForm" class="loginForm" (ngSubmit)="loginSubmit(loginForm)">
       <div>
         <fieldset class="mb-3">
-          <label for="username" class="block">Username</label>
+          <label for="username" class="loginUsername">Username</label>
           <input class="loginFormInput" type="text" ngModel #username="ngModel" required minlength="2" name="username" id="username"
              placeholder="sean">
           <div *ngIf="username.errors && (username.dirty || username.touched)">
-            <p *ngIf="username.errors['required']">username is required</p>
-            <p *ngIf="username.errors['minlength']">username is too short</p>
+            <p class="errorMessage" *ngIf="username.errors['required']">username is required</p>
+            <p class="errorMessage" *ngIf="username.errors['minlength']">username is too short</p>
           </div>
         </fieldset>
         <button class="loginSubmitButton" type="submit" [disabled]="loginForm.form.invalid">Login</button>

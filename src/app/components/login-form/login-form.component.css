@@ -35,7 +35,9 @@ mat-card {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
+  background-color: rgb(48, 48, 48)!important;
+  box-shadow: black;
+    box-shadow: 4px 8px 6px -6px black;
 }
 
 section {
@@ -45,30 +47,41 @@ section {
 
 .loginTitle{
   text-align: center;
+  color:white;
 }
-
+.loginUsername{
+  text-align: center;
+  color:white;
+}
 .loginForm{
   width: 300px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
 }
 
 .loginFormInput{
+  height: 30px;
   width: 100% !important;
   border-radius: 4px;
+}
+.errorMessage{
+  color: rgb(196, 196, 196);
 }
 .loginSubmitButton{
   background-color: rgb(25, 135, 48);
   color:  rgb(132, 198, 146);
   border-color:black;
   width: 100%;
+  height: 30px;
   border-radius: 4px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
   font-weight: 100;
+
 }
 
 .loginSubmitButton:hover{
@@ -76,3 +89,4 @@ background-color: rgb(132, 198, 146);
 color:  rgb(27, 27, 27);
 font-weight: 800;
 }
+
