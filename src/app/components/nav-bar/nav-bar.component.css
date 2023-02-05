@@ -1,11 +1,34 @@
 .nav{
-  background-color: rgb(7, 40, 226);
+  background-color: rgb(90, 90, 90)!important;
   display: grid;
   grid-gap: 20 px;
   padding: 15px;
   grid-template-columns: repeat(auto-fit,minmax(23%, 1fr));
+  color: rgb(255, 255, 255);
+  font-weight: 700;
 }
-
-.span{
-  background-color: rgb(255, 57, 57);
+.changePage:hover{
+  color: rgb(255, 205, 42)!important;
+  font-size: larger;
+  font-weight: 900;
+  text-shadow: 2px 2px #ff0000;
+   
+}
+.logoutBtn{
+  width: 100px;
+  height: 30px;
+  background-color: rgb(75, 75, 75);
+  border-radius: 5px;
+  text-align: center;
+  
+  position: absolute;
+  
+  right: 5px;
+}
+.logoutBtn:hover{
+  background-color: rgb(240, 88, 88);
+  font-size: larger;
+  font-weight: 900;
+  box-shadow: black;
+    box-shadow: 4px 8px 6px -6px black;
 }
