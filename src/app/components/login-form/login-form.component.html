@@ -6,7 +6,7 @@
         <fieldset class="mb-3">
           <label for="username" class="block">Username</label>
           <input class="loginFormInput" type="text" ngModel #username="ngModel" required minlength="2" name="username" id="username"
-            class="border" placeholder="sean">
+             placeholder="sean">
           <div *ngIf="username.errors && (username.dirty || username.touched)">
             <p *ngIf="username.errors['required']">username is required</p>
             <p *ngIf="username.errors['minlength']">username is too short</p>
