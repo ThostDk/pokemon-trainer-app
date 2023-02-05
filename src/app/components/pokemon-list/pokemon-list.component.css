@@ -1,3 +1,50 @@
+.countForm{
+    display: grid;
+    background-color: rgb(48, 65, 219);
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: black;
+    box-shadow: 0px 8px 6px -6px black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+    z-index: 1;
+}
+.pokemonCountInputField{
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: 700;
+    color: rgb(255, 57, 57);
+    height: 40px;
+    border-width: 3px;
+    border-color: rgb(255, 57, 57);
+}
+
+.countBtn{
+    width: 50%;
+    background-color: rgb(255, 57, 57);
+    border-radius: 5px;
+    height: 30px;
+    margin-top: -6px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-weight: 700;
+    color:rgb(255, 255, 255);
+    border-width: 3px;
+    z-index: 1;
+    border-color: rgb(255, 57, 57);
+}
+.countBtn:hover{
+    background-color: rgb(255, 0, 0);
+    color:rgb(255, 238, 0);
+    font-weight: 900;
+    font-size: 20px;
+}
 .pokemon-grid{
     background-color: rgb(48, 65, 219);
     display: grid;
