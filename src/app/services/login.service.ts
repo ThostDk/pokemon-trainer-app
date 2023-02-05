@@ -2,7 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, of, switchMap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { StorageKeys } from '../enums/storage-keys.enum';
 import { User } from '../models/user.model';
+import { StorageUtil } from '../utils/storage.util';
 
 
 const { apiUsers, apiKey } = environment;
@@ -23,6 +25,9 @@ export class LoginService {
         return of(user);
       })
     )
+  }
+  public logout() {
+    StorageUtil.storageRemove(StorageKeys.User)
   }
   
   // Check if user exists

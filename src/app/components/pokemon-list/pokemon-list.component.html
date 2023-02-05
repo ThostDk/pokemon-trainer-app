@@ -1,20 +1,29 @@
-
-    
-    
-    <form class="countForm" #f="ngForm" (submit)="findPokemonCountSubmit(f)">
-        <input class="pokemonCountInputField" type="number" name="age" ngModel/>
-        <button class="countBtn">Find Pokemons</button>
-    </form>  
-<div class="pokemon-grid">
+<div class="page">
+    <h2 class="pageHeadline">Catalogue Page</h2>
+  <form class="countForm" #f="ngForm" (submit)="findPokemonCountSubmit(f)">
+    <input
+      class="pokemonCountInputField"
+      type="number"
+      name="nr"
+      ngModel
+      placeholder="10"
+    />
+    <button class="countBtn">Find Pokemons</button>
+  </form>
+  <div class="pokemon-grid">
     <div class="box" *ngFor="let pokemon of pokemons">
-        <img class="pokemonImg"
-         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" 
-         />
-        <h2 class="pokemonName">{{pokemon.name}}</h2>
-        <app-pokemon-button [pokemonName]="pokemon.name"></app-pokemon-button>
+      <img
+        class="pokemonImg"
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{
+          pokemon.id
+        }}.png"
+      />
+      <h2 class="pokemonName">{{ pokemon.name }}</h2>
+
+      <img class="captured" [src]="imageUrl[pokemon.id - 1]" />
+      <app-pokemon-button [pokemonName]="pokemon.name">
+        <!-- <img class="captured" [src]='imageUrl[pokemon.id]' /> -->
+      </app-pokemon-button>
     </div>
-    
+  </div>
 </div>
-
-
-
