@@ -2,7 +2,7 @@
     
     
     <form class="countForm" #f="ngForm" (submit)="findPokemonCountSubmit(f)">
-        <input class="pokemonCountInputField" type="number" name="age" ngModel/>
+        <input class="pokemonCountInputField" type="number" name="nr" ngModel/>
         <button class="countBtn">Find Pokemons</button>
     </form>  
 <div class="pokemon-grid">
@@ -11,7 +11,10 @@
          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" 
          />
         <h2 class="pokemonName">{{pokemon.name}}</h2>
-        <app-pokemon-button [pokemonName]="pokemon.name"></app-pokemon-button>
+        <img class="captured" [src]='imageUrl[pokemon.id-1]' />
+        <app-pokemon-button [pokemonName]="pokemon.name">
+            <!-- <img class="captured" [src]='imageUrl[pokemon.id]' /> -->
+        </app-pokemon-button>
     </div>
     
 </div>

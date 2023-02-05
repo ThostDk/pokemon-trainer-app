@@ -28,10 +28,11 @@ export class PokemonCatalogueService {
   fetchPokeApiData(number: number) {
     return this.http.get(`${environment.apiPokemons}?limit=${number}`);
   }
-  // gets the actual pokemon data by name
+  // gets the pokemon data by name
   getPokemonData(name: string) {
     return this.http.get(`${environment.apiPokemons}${name}`);
   }
+  
   // function that removes the selected pokemon from the users api if it matches the current users existing pokemon
   removePokemonFromTrainer(pokemonName:string): Observable<User>{
     if (!this.userService.user) {
@@ -97,6 +98,7 @@ export class PokemonCatalogueService {
       }),
       finalize(() =>{
         this._loading = false;
+        alert(`You caught a ${pokemonName}!`)
       })
     )
   }
