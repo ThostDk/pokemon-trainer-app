@@ -32,6 +32,7 @@ export class PokemonService {
   getPokemonData(name: string)  {
     return this.http.get(`${environment.apiPokemons}/${name}`);
   }
+  // get specie data: growth rate, color etc.
   getPokemonSpecie(name: string){
     return this.http.get(`${environment.apiPokemons}-species/${name}`);
   }
