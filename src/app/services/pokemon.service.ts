@@ -13,7 +13,7 @@ const { apiPokemons, apiTrainers, apiKey } = environment;
 @Injectable({
   providedIn: 'root',
 })
-export class PokemonCatalogueService {
+export class PokemonService {
   private _loading: boolean = false;
 
   get loading(): boolean{
@@ -28,11 +28,13 @@ export class PokemonCatalogueService {
   fetchPokeApiData(number: number) {
     return this.http.get(`${environment.apiPokemons}?limit=${number}`);
   }
-  // gets the pokemon data by name
-  getPokemonData(name: string) {
-    return this.http.get(`${environment.apiPokemons}${name}`);
+  // gets the pokemon data
+  getPokemonData(name: string)  {
+    return this.http.get(`${environment.apiPokemons}/${name}`);
   }
-  
+  getPokemonSpecie(name: string){
+    return this.http.get(`${environment.apiPokemons}-species/${name}`);
+  }
   // function that removes the selected pokemon from the users api if it matches the current users existing pokemon
   removePokemonFromTrainer(pokemonName:string): Observable<User>{
     if (!this.userService.user) {

@@ -2,7 +2,7 @@ import { ObserversModule } from '@angular/cdk/observers';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Pokemon } from 'src/app/models/pokemon.model';
-import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.service';
+import { PokemonService} from 'src/app/services/pokemon.service';
 import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-pokemon-list',
@@ -15,7 +15,7 @@ export class PokemonListComponent implements OnInit {
     
   pokemonCount: number = 20;
   constructor(
-    private pokeCatalogueService: PokemonCatalogueService,
+    private pokemonService: PokemonService,
     private userService: UserService
   ) {}
   
@@ -31,11 +31,13 @@ export class PokemonListComponent implements OnInit {
     console.log(nr);
     if (isNaN(nr)) {
       console.log('input is not a number!');
-    } else {
+    } else if (nr > 0 && nr <= 100 ) {
       this.pokemons = [];
       this.imageUrl = [];
       this.renderPokemons(nr);
-      
+    }
+    else{
+      alert("number must be above 1 and max 100")
     }
   }
   //check if the pokemon is captured and return a pokeball if so
@@ -50,11 +52,11 @@ export class PokemonListComponent implements OnInit {
   // then get & push their inner data by name to the pokemon array
   
   renderPokemons = (count: number): void => {
-    this.pokeCatalogueService
+    this.pokemonService
       .fetchPokeApiData(count)
       .subscribe((apiResponse: any) => {
         apiResponse.results.forEach((result: { name: string }) => {
-          this.pokeCatalogueService
+          this.pokemonService
             .getPokemonData(result.name)
             .subscribe((dataResponse: any) => {
               this.pokemons.push(dataResponse);

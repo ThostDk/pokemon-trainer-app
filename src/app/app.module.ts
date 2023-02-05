@@ -15,6 +15,7 @@ import { PokemonButtonComponent } from './components/pokemon-button/pokemon-butt
 import { MyPokemonsComponent } from './components/my-pokemons/my-pokemons.component';
 import { RemovePokemonButtonComponent } from './components/remove-pokemon-button/remove-pokemon-button.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     PokemonButtonComponent,
     MyPokemonsComponent,
     RemovePokemonButtonComponent,
-    NavBarComponent
+    NavBarComponent,
+    
   ],
   imports: [
     BrowserModule,

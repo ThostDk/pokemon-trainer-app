@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input,OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
-import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.service';
+import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-button',
@@ -13,16 +13,16 @@ export class PokemonButtonComponent {
   @Input() pokemonName: string = "";
   
   get loading(): boolean {
-    return this.pokeCatalogueService.loading;
+    return this.pokemonService.loading;
   }
 
   constructor(
-    private readonly pokeCatalogueService: PokemonCatalogueService,
+    private readonly pokemonService: PokemonService,
     ){}
   ngOnInit(): void {}
   addPokemonClick = () =>{
     console.log(this.pokemonName.toString())
-    this.pokeCatalogueService.addPokemonToTrainer(this.pokemonName.toString()).subscribe({
+    this.pokemonService.addPokemonToTrainer(this.pokemonName.toString()).subscribe({
       next: (response: User) => {
         console.log("NEXT", response);
       },
