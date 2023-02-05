@@ -1,0 +1,11 @@
+.nav{
+  background-color: rgb(7, 40, 226);
+  display: grid;
+  grid-gap: 20 px;
+  padding: 15px;
+  grid-template-columns: repeat(auto-fit,minmax(23%, 1fr));
+}
+
+.span{
+  background-color: rgb(255, 57, 57);
+}
