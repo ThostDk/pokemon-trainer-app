@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input,OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
-import { PokemonCatalogueService } from 'src/app/services/pokemon-catalogue.service';
+import { PokemonService } from 'src/app/services/pokemon.service';
 import { MyPokemonsComponent } from '../my-pokemons/my-pokemons.component';
 
 @Component({
@@ -15,11 +15,11 @@ export class RemovePokemonButtonComponent {
   @Input() pokemonName: string = "";
   
   get loading(): boolean {
-    return this.pokeCatalogueService.loading;
+    return this.pokemonService.loading;
   }
 
   constructor(
-    private readonly pokeCatalogueService: PokemonCatalogueService,
+    private readonly pokemonService: PokemonService,
     private readonly myPokemonsComponent: MyPokemonsComponent
     ){ }
 
@@ -28,7 +28,7 @@ export class RemovePokemonButtonComponent {
   // removes the selected pokemon from the user on click
   removePokemonClick = () =>{
     console.log(this.pokemonName.toString())
-    this.pokeCatalogueService.removePokemonFromTrainer(this.pokemonName.toString()).subscribe({
+    this.pokemonService.removePokemonFromTrainer(this.pokemonName.toString()).subscribe({
       next: (response: User) => {
         console.log("NEXT", response);
         this.myPokemonsComponent.renderMyPokemons();

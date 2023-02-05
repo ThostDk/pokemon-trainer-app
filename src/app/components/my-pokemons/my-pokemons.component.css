@@ -1,10 +1,24 @@
+.page{
+    background-color: rgb(211, 76, 76);
+    border-top: 4px solid;
+    border-color: rgb(46, 46, 46);
+}
+
+.pageHeadline{
+    width: 100%;
+    color: white;
+    text-align: Left;
+    padding-top: 20px;
+    padding-left: 100px;
+}
 .pokemon-grid{
-    background-color: rgb(48, 65, 219);
+    
     display: grid;
     grid-gap: 16 px;
     padding: 15px;
     grid-template-columns: repeat(auto-fit,minmax(23%, 1fr));
 }
+
 .pokemon-grid .box{
     width: 80%;
     background-color: rgb(40, 120, 185);
