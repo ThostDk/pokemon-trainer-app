@@ -1,15 +1,19 @@
-<form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
-  <div class="card">
-    <img src="https://www.justcolor.net/kids/wp-content/uploads/sites/12/nggallery/pokemon/Coloring-for-kids-pokemon-22402.jpg">
-  <fieldset class="mb-3">
-    <label for="username" class="block">Username</label>
-    <input type="text" ngModel #username="ngModel" required minlength="2" name="username" id="username"
-      class="border" placeholder="sean">
-    <div *ngIf="username.errors && (username.dirty || username.touched)">
-      <p *ngIf="username.errors['required']">username is required</p>
-      <p *ngIf="username.errors['minlength']">username is too short</p>
-    </div>
-  </fieldset>
-  <button class="loginSubmitButton" type="submit" [disabled]="loginForm.form.invalid">Login</button>
-</div>
-</form>
+<mat-card style="display: flex">
+  <mat-card-title class="loginTitle">Login</mat-card-title>
+  <mat-card-content>
+    <form #loginForm="ngForm" class="loginForm" (ngSubmit)="loginSubmit(loginForm)">
+      <div>
+        <fieldset class="mb-3">
+          <label for="username" class="block">Username</label>
+          <input class="loginFormInput" type="text" ngModel #username="ngModel" required minlength="2" name="username" id="username"
+            class="border" placeholder="sean">
+          <div *ngIf="username.errors && (username.dirty || username.touched)">
+            <p *ngIf="username.errors['required']">username is required</p>
+            <p *ngIf="username.errors['minlength']">username is too short</p>
+          </div>
+        </fieldset>
+        <button class="loginSubmitButton" type="submit" [disabled]="loginForm.form.invalid">Login</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

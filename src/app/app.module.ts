@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule} from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule} from '@angular/flex-layout';
+
 
 import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login.page';
@@ -38,6 +41,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatCardModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

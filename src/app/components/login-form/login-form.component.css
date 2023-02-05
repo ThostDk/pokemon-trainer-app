@@ -1,28 +1,19 @@
 .column{
   float: left;
-  width: 33.33%;
+  width: 100%;
 }
 
 .row::after{
-  content: "";
+  content: url("https://www.justcolor.net/kids/anime-and-mangas/pokemon/all-pokemon-coloring-pages/?image=pokemon__Coloring-for-kids-pokemon-22402__1");
   display: table;
   clear: both;
 }
 
-.column {
-  width: 100%;
-}
-
-.card{
-  background-color:  lightskyblue;
-
-}
-
 .loginSubmitButton{
   background-color: rgb(25, 135, 48);
-  color: white;
+  color:  rgb(132, 198, 146);
   border-color:black;
-  width: 10%;
+  width: 80%;
   border-radius: 4px;
   margin-right: auto;
   margin-left: auto;
@@ -35,10 +26,10 @@ background-color: rgb(132, 198, 146);
 }
 
 .border{
-  background-color: rgba(128, 128, 128, 0.577);
-  color: black;
+  background-color: rgb(132, 198, 146);
+  color: whitesmoke;
   border-color:black;
-  width: 10%;
+  width: 80%;
   border-radius: 4px;
   margin-right: auto;
   margin-left: auto;
@@ -47,5 +38,52 @@ background-color: rgb(132, 198, 146);
 }
 
 .border:hover{
-background-color: coral;
+background-color:  rgb(132, 198, 146);
+}
+
+/* mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+    box-sizing: content-box;
+  }
+
+.container, app-root, app-login, app-login-form {
+  height: 100%;
+  display: block;
+} */
+
+mat-card {
+  width: 350px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+section {
+  vertical-align: middle;
+  height: 100%;
+}
+
+.loginTitle{
+  text-align: center;
+}
+
+.loginForm{
+  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loginFormInput{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
