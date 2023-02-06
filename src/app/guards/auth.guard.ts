@@ -18,6 +18,7 @@ export class AuthGuard implements CanActivate {
     private readonly userService: UserService
   ) {}
 
+  // checks if you are logged in. If not then get returned to login page
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

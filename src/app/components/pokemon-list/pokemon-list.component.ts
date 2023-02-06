@@ -26,7 +26,8 @@ export class PokemonListComponent implements OnInit {
     
   }
   
-  findPokemonCountSubmit(f: NgForm) {
+  // Function for rendering chosen count of pokemons on btn click 
+  pokemonCountSubmit(f: NgForm) {
     const nr = parseInt(f.value.nr);
     console.log(nr);
     if (isNaN(nr)) {
@@ -40,7 +41,8 @@ export class PokemonListComponent implements OnInit {
       alert("number must be above 1 and max 100")
     }
   }
-  //check if the pokemon is captured and return a pokeball if so
+
+  //checks if the pokemon is captured and returns a pokeball if so
   isCaptured = (name: string): void => {
     if (this.userService.havePokemon(name)) {
       this.imageUrl.push('https://www.freeiconspng.com/thumbs/pokeball-png/file-pokeball-png-0.png')
@@ -48,9 +50,9 @@ export class PokemonListComponent implements OnInit {
       this.imageUrl.push('https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png')
     }
   };
+
   // get the api data and run through each of the pokemons
   // then get & push their inner data by name to the pokemon array
-  
   renderPokemons = (count: number): void => {
     this.pokemonService
       .fetchPokeApiData(count)

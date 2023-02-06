@@ -7,7 +7,7 @@ import { User } from '../models/user.model';
 import { StorageUtil } from '../utils/storage.util';
 
 
-const { apiUsers, apiKey } = environment;
+const { apiTrainers, apiKey } = environment;
 @Injectable({
   providedIn: 'root'
 })
@@ -32,7 +32,7 @@ export class LoginService {
   
   // Check if user exists
   private checkUsername(username: string): Observable<User | undefined> {
-    return this.http.get<User[]>(`${apiUsers}?username=${username}`)
+    return this.http.get<User[]>(`${apiTrainers}?username=${username}`)
     .pipe(
       // RxJS Operators
       map((response: User[]) => response.pop())
@@ -50,7 +50,7 @@ export class LoginService {
       "x-api-key": apiKey
     });
 
-    return this.http.post<User>(apiUsers, user, {
+    return this.http.post<User>(apiTrainers, user, {
       headers
     })
     //user
