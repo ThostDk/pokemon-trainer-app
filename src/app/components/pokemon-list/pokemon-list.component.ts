@@ -1,7 +1,5 @@
-import { ObserversModule } from '@angular/cdk/observers';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonService} from 'src/app/services/pokemon.service';
 import { UserService } from 'src/app/services/user.service';
 @Component({

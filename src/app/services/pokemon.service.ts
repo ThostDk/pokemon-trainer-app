@@ -2,13 +2,11 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { finalize, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { StorageKeys } from '../enums/storage-keys.enum';
-import { Pokemon } from '../models/pokemon.model';
 import { User } from '../models/user.model';
-import { StorageUtil } from '../utils/storage.util';
+
 import { UserService } from './user.service';
 
-const { apiPokemons, apiTrainers, apiKey } = environment;
+const { apiTrainers, apiKey } = environment;
 
 @Injectable({
   providedIn: 'root',

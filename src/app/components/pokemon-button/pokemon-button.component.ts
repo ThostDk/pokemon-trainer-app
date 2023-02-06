@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input,OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
